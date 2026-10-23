@@ -123,7 +123,7 @@ struct RepoDetailView: View {
                 Section("Open pull requests") {
                     if let pulls = bundle?.value.openPulls {
                         if pulls.isEmpty { Text("No open pull requests.").foregroundStyle(.secondary) }
-                        ForEach(pulls) { NavigationLink(value: $0) { IssueRow(item: $0) } }
+                        ForEach(pulls) { pull in NavigationLink(value: pull) { IssueRow(item: pull) } }
                     } else if error == nil {
                         ProgressView()
                     } else {

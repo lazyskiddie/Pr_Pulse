@@ -73,7 +73,7 @@ struct PRListView: View {
                                            description: Text(vm.searchText.isEmpty ? "Nothing to show for “\(vm.scope.rawValue)”." : "Try a different search."))
                         .listRowSeparator(.hidden)
                 }
-                ForEach(vm.filtered) { NavigationLink(value: $0) { IssueRow(item: $0) } }
+                ForEach(vm.filtered) { item in NavigationLink(value: item) { IssueRow(item: item) } }
             }
             .listStyle(.plain)
             .refreshable { await vm.load() }
